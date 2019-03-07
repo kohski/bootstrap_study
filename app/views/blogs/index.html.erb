@@ -1,0 +1,18 @@
+<table id="index_table">
+  <tr id="index_header">
+    <th class="index_title_column">title</th>
+    <th>content</th>
+    <th>edit</th>
+    <th>delete</th>
+  </tr>
+  <% @blogs.each do |blog| %>
+    <tr class="index_rows">
+      <td><%= blog.title %></td>
+      <td><%= blog.content %></td>
+      <td><%= link_to 'edit', edit_blog_path(blog.id) %></td>
+      <td><%= link_to 'delete', blog_path(blog.id), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to '新規登録', new_blog_path %>
